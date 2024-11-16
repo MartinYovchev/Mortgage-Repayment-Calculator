@@ -1,24 +1,35 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 
 const Calculator = () => {
   const [amount, setAmount] = useState('');
   const [term, setTerm] = useState('');
   const [rate, setRate] = useState('');
+  const [type, setType] = useState('repayment');
+  const [requestData, setRequestData] = useState({});
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = { amount, term, rate, type };
+    setRequestData(formData);
+    console.log(formData);
+  };
 
   return (
     <div className="calculator">
       <h1 className="calculator-header">Mortgage Calculator</h1>
-      <form>
+
+      <form onSubmit={handleSubmit} autoComplete="off">
         <label className="mortgageAmount">
           Mortgage Amount <br />
           <input
             id="mortgage-amount"
             value={amount}
-            name="mortgage-amount"
+            name="amount"
             onChange={(e) => {
               setAmount(e.target.value);
             }}
-          ></input>
+          />
         </label>
         <br />
         <label htmlFor="mortgageTerm">
@@ -26,54 +37,67 @@ const Calculator = () => {
           <input
             id="mortgage-term"
             value={term}
+            name="term"
             onChange={(e) => {
               setTerm(e.target.value);
             }}
-          ></input>
+          />
         </label>
         <br />
-        <lable htmlFor="interestRate">
+        <label htmlFor="interestRate">
           Interest Rate <br />
           <input
             id="interest-rate"
             value={rate}
+            name="rate"
             onChange={(e) => {
               setRate(e.target.value);
             }}
-          ></input>
-        </lable>
+          />
+        </label>
         <br />
         <div className="mortgage-type">
-          <lable htmlFor="mortgageType">
+          <label htmlFor="mortgageType">
             Mortgage Type <br />
-          </lable>
+          </label>
 
-          <label htmlFor="replayment">
+          <label htmlFor="repayment">
             Repayment
             <input
               type="radio"
-              name="mortgage"
+              name="type"
               value="repayment"
-              defaultChecked
+              checked={type === 'repayment'}
+              onChange={(e) => setType(e.target.value)}
             />
           </label>
+
           <label htmlFor="interest">
             Interest Only
-            <input type="radio" name="mortgage" value="interest-only" />
+            <input
+              type="radio"
+              name="type"
+              value="interest"
+              checked={type === 'interest'}
+              onChange={(e) => setType(e.target.value)}
+            />
           </label>
         </div>
         <br />
-        <button
-          type="submit"
-          onClick={(e) => {
-            e.preventDefault();
-          }}
-        >
+        <button className="submit-button" type="submit">
           Calculate Payment
         </button>
-        <button className="clear-button">Clear All</button>
+        <button
+          className="clear-button"
+          onClick={() => {
+            window.location.reload();
+          }}
+        >
+          Clear All
+        </button>
       </form>
     </div>
   );
 };
+
 export default Calculator;
