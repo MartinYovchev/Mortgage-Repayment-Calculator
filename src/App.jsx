@@ -1,10 +1,11 @@
 import Calculator from './Calculator';
+import Results from './Results';
 
 function App() {
   return (
-    <div>
-      <h1 className="heading">Mortgage Calculator</h1>
-      <Calculator />;
+    <div className="wrapper">
+      <Calculator />
+      <Results />
     </div>
   );
 }

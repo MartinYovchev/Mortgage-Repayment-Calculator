@@ -7,6 +7,7 @@ const Calculator = () => {
 
   return (
     <div className="calculator">
+      <h1 className="calculator-header">Mortgage Calculator</h1>
       <form>
         <label className="mortgageAmount">
           Mortgage Amount <br />
@@ -15,7 +16,7 @@ const Calculator = () => {
             value={amount}
             name="mortgage-amount"
             onChange={(e) => {
-                setAmount(e.target.value);
+              setAmount(e.target.value);
             }}
           ></input>
         </label>
@@ -26,7 +27,7 @@ const Calculator = () => {
             id="mortgage-term"
             value={term}
             onChange={(e) => {
-                setTerm(e.target.value);
+              setTerm(e.target.value);
             }}
           ></input>
         </label>
@@ -37,7 +38,7 @@ const Calculator = () => {
             id="interest-rate"
             value={rate}
             onChange={(e) => {
-                setRate(e.target.value);
+              setRate(e.target.value);
             }}
           ></input>
         </lable>
@@ -46,15 +47,20 @@ const Calculator = () => {
           <lable htmlFor="mortgageType">
             Mortgage Type <br />
           </lable>
-          <label htmlFor="replayment">Repayment</label>
-          <input
-            type="radio"
-            name="mortgage"
-            value="repayment"
-            defaultChecked
-          />
-          <label htmlFor="interest">Interest Only</label>
-          <input type="radio" name="mortgage" value="interest-only" />
+
+          <label htmlFor="replayment">
+            Repayment
+            <input
+              type="radio"
+              name="mortgage"
+              value="repayment"
+              defaultChecked
+            />
+          </label>
+          <label htmlFor="interest">
+            Interest Only
+            <input type="radio" name="mortgage" value="interest-only" />
+          </label>
         </div>
         <br />
         <button
@@ -65,7 +71,7 @@ const Calculator = () => {
         >
           Calculate Payment
         </button>
-        <button>Clear All</button>
+        <button className="clear-button">Clear All</button>
       </form>
     </div>
   );
