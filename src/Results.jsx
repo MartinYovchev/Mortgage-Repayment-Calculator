@@ -9,7 +9,7 @@ const Results = () => {
       <div className="payment-block">
         <label htmlFor="monthly-repayments">
           Your monthly repayments
-          <span className="monthly-repayments-amount">1,000</span>
+          <span className="monthly-repayments-amount">10,000</span>
         </label>
         <hr />
         <label htmlFor="total-repayments">

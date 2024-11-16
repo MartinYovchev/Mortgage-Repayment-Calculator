@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 
 const Calculator = () => {
@@ -6,13 +5,14 @@ const Calculator = () => {
   const [term, setTerm] = useState('');
   const [rate, setRate] = useState('');
   const [type, setType] = useState('repayment');
-  const [requestData, setRequestData] = useState({});
+  // eslint-disable-next-line no-unused-vars
+  const [requestData, setRequestData] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = { amount, term, rate, type };
-    setRequestData(formData);
     console.log(formData);
+    setRequestData(formData);
   };
 
   return (
