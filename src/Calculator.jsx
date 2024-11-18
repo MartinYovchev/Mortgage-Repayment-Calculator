@@ -19,12 +19,13 @@ const Calculator = ({ onCalculate }) => {
       return;
     }
 
-    const formData = { amountNum, termNum, rateNum, type };
-    if (onCalculate && typeof onCalculate === 'function') {
-      onCalculate(formData);
-    } else {
-      console.error('onCalculate is not a function!');
-    }
+    const formData = {
+      amount: amountNum,
+      term: termNum,
+      rate: rateNum,
+      type,
+    };
+    onCalculate(formData);
   };
 
   return (

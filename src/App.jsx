@@ -12,6 +12,7 @@ const App = () => {
   return (
     <div className="wrapper">
       <Calculator onCalculate={handleCalculate} />
+
       {formData && <Results formData={formData} />}
     </div>
   );
