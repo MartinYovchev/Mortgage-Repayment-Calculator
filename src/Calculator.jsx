@@ -1,18 +1,30 @@
 import { useState } from 'react';
 
-const Calculator = () => {
+// eslint-disable-next-line react/prop-types
+const Calculator = ({ onCalculate }) => {
   const [amount, setAmount] = useState('');
   const [term, setTerm] = useState('');
   const [rate, setRate] = useState('');
   const [type, setType] = useState('repayment');
-  // eslint-disable-next-line no-unused-vars
-  const [requestData, setRequestData] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = { amount, term, rate, type };
-    console.log(formData);
-    setRequestData(formData);
+
+    const amountNum = parseFloat(amount);
+    const termNum = parseFloat(term);
+    const rateNum = parseFloat(rate);
+
+    if (isNaN(amountNum) || isNaN(termNum) || isNaN(rateNum)) {
+      alert('Please enter valid numeric values for all fields.');
+      return;
+    }
+
+    const formData = { amountNum, termNum, rateNum, type };
+    if (onCalculate && typeof onCalculate === 'function') {
+      onCalculate(formData);
+    } else {
+      console.error('onCalculate is not a function!');
+    }
   };
 
   return (
@@ -26,6 +38,8 @@ const Calculator = () => {
             id="mortgage-amount"
             value={amount}
             name="amount"
+            type="text"
+            pattern="\d+((\.)\d+)?"
             onChange={(e) => {
               setAmount(e.target.value);
             }}
@@ -38,6 +52,8 @@ const Calculator = () => {
             id="mortgage-term"
             value={term}
             name="term"
+            type="text"
+            pattern="\d+((\.)\d+)?"
             onChange={(e) => {
               setTerm(e.target.value);
             }}
@@ -50,6 +66,8 @@ const Calculator = () => {
             id="interest-rate"
             value={rate}
             name="rate"
+            type="text"
+            pattern="\d+((\.)\d+)?"
             onChange={(e) => {
               setRate(e.target.value);
             }}

@@ -1,23 +1,45 @@
-const Results = () => {
+/* eslint-disable react/prop-types */
+
+const Results = ({ formData }) => {
+  const { amount, term, rate, type } = formData;
+
+  const monthlyRate = rate / 100 / 12;
+
+  const totalMonths = term * 12;
+
+  let monthlyRepayment, totalRepayment;
+
+  if (type === 'repayment') {
+    monthlyRepayment =
+      (amount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -totalMonths));
+    totalRepayment = monthlyRepayment * totalMonths;
+  } else if (type === 'interest') {
+    monthlyRepayment = amount * monthlyRate;
+    totalRepayment = monthlyRepayment * totalMonths;
+  }
+
   return (
     <div className="results">
-      <h1 className="results-header">Your Results</h1>
-      <p className="description">
-        Your results are shown below based on the information you provided. To
-        adjust the results, edit tghe form and click Calculate Repayments again.
-      </p>
+      <h1>Your Results</h1>
+      <p>Here is what you can expect based on the provided information:</p>
+
       <div className="payment-block">
         <label htmlFor="monthly-repayments">
-          Your monthly repayments
-          <span className="monthly-repayments-amount">10,000</span>
+          Monthly Repayments:
+          <span className="monthly-repayments-amount">
+            {monthlyRepayment.toFixed(2)} €
+          </span>
         </label>
         <hr />
         <label htmlFor="total-repayments">
-          Total you&apos;ll repay over the term
-          <span className="total-repayments-amount">123,000</span>
+          Total Repayments Over the Term:
+          <span className="total-repayments-amount">
+            {totalRepayment.toFixed(2)} €
+          </span>
         </label>
       </div>
     </div>
   );
 };
+
 export default Results;
