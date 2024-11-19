@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Calculator from './Calculator';
 import Results from './Results';
+import './styles/app.scss';
 
 const App = () => {
   const [formData, setFormData] = useState(null);

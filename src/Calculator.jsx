@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './styles/calculator.scss';
 
 // eslint-disable-next-line react/prop-types
 const Calculator = ({ onCalculate }) => {
@@ -30,57 +31,59 @@ const Calculator = ({ onCalculate }) => {
 
   return (
     <div className="calculator">
-      <h1 className="calculator-header">Mortgage Calculator</h1>
+      <h1 className="calculator-header">
+        Mortgage Calculator{' '}
+        <button
+          className="clear-button"
+          onClick={() => {
+            window.location.reload();
+          }}
+        >
+          Clear All
+        </button>
+      </h1>
 
       <form onSubmit={handleSubmit} autoComplete="off">
-        <label className="mortgageAmount">
-          Mortgage Amount <br />
-          <input
-            id="mortgage-amount"
-            value={amount}
-            name="amount"
-            type="text"
-            pattern="\d+((\.)\d+)?"
-            onChange={(e) => {
-              setAmount(e.target.value);
-            }}
-          />
-        </label>
-        <br />
-        <label htmlFor="mortgageTerm">
-          Mortgage Term <br />
-          <input
-            id="mortgage-term"
-            value={term}
-            name="term"
-            type="text"
-            pattern="\d+((\.)\d+)?"
-            onChange={(e) => {
-              setTerm(e.target.value);
-            }}
-          />
-        </label>
-        <br />
-        <label htmlFor="interestRate">
-          Interest Rate <br />
-          <input
-            id="interest-rate"
-            value={rate}
-            name="rate"
-            type="text"
-            pattern="\d+((\.)\d+)?"
-            onChange={(e) => {
-              setRate(e.target.value);
-            }}
-          />
-        </label>
-        <br />
-        <div className="mortgage-type">
-          <label htmlFor="mortgageType">
-            Mortgage Type <br />
-          </label>
+        <label className="inputLabel">Mortgage Amount</label>
+        <input
+          id="mortgage-amount"
+          value={amount}
+          name="amount"
+          type="text"
+          pattern="\d+((\.)\d+)?"
+          onChange={(e) => {
+            setAmount(e.target.value);
+          }}
+        />
 
-          <label htmlFor="repayment">
+        <label className="inputLabel">Mortgage Term</label>
+        <input
+          id="mortgage-term"
+          value={term}
+          name="term"
+          type="text"
+          pattern="\d+((\.)\d+)?"
+          onChange={(e) => {
+            setTerm(e.target.value);
+          }}
+        />
+
+        <label className="inputLabel">Interest Rate</label>
+        <input
+          id="interest-rate"
+          value={rate}
+          name="rate"
+          type="text"
+          pattern="\d+((\.)\d+)?"
+          onChange={(e) => {
+            setRate(e.target.value);
+          }}
+        />
+
+        <div className="mortgage-type">
+          <label className="inputLabel">Mortgage Type</label>
+
+          <label className='statements'>
             Repayment
             <input
               type="radio"
@@ -91,7 +94,7 @@ const Calculator = ({ onCalculate }) => {
             />
           </label>
 
-          <label htmlFor="interest">
+          <label className='statements'>
             Interest Only
             <input
               type="radio"
@@ -102,17 +105,9 @@ const Calculator = ({ onCalculate }) => {
             />
           </label>
         </div>
-        <br />
+
         <button className="submit-button" type="submit">
-          Calculate Payment
-        </button>
-        <button
-          className="clear-button"
-          onClick={() => {
-            window.location.reload();
-          }}
-        >
-          Clear All
+          ⚙️Calculate Payment
         </button>
       </form>
     </div>

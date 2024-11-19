@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+
+  .calculator-header {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  .inputLabel {
+    font-size: 14px;
+    font-weight: 600;
+    color: slategrey;
+  }
+
+  input[type='text'] {
+    display: flex;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #dddfe1;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      border-color: #a8eb18; // Focus color
+      outline: none;
+    }
+  }
+
+  .mortgage-type {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 1rem;
+  
+    .inputLabel {
+      font-weight: bold;
+    }
+  
+    .statements {
+      display: flex;
+      align-items: center;
+      border: 2px solid #dddfe1;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 0.7rem;
+
+
+      // input[type="radio"] {
+      //   margin-right: 8px;
+      // }
+  
+      // input[type="radio"]:checked + & {
+      //   border-color: #4caf50;
+      //   background-color: lighten(#4caf50, 30%);
+      //   color: #4caf50;
+      // }
+  
+      &:hover {
+        border-color: #a8eb18;
+      }
+  
+      // input[type="radio"]:checked {
+      //   background-color: #4caf50;
+      //   border-color: #4caf50;
+      // }
+    }
+  }
+
+  .submit-button {
+    background-color: rgb(183, 183, 45);
+    color: black;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background-color: #2980b9;
+    }
+  }
+
+  .clear-button {
+    border: none;
+    color: darken(slategrey, 20%);
+    background-color: transparent;
+    text-decoration: underline;
+    margin-left: 2.5rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  button:focus {
+    outline: none;
+  }
+
+  @media (max-width: 480px) {
+    .calculator {
+      padding: 1.5rem;
+      max-width: 100%;
+    }
+
+    .calculator-header {
+      font-size: 22px;
+    }
+
+    .submit-button,
+    .clear-button {
+      padding: 0.75rem;
+      font-size: 14px;
+    }
+  }
+}
