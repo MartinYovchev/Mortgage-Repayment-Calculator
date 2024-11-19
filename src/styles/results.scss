@@ -1,0 +1,51 @@
+.results {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding-left: 2rem;
+  background-color: #133040;
+  max-width: 350px;
+  min-height: 600px;
+  border-radius: 5%;
+  padding-top: 5rem;
+
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: white;
+  }
+
+  p {
+    font-size: 16px;
+    color: slategray;
+  }
+  .payment-block {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    background: #0e2431;
+    max-width: 300px;
+    padding: 1rem;
+    padding-right: 0.01rem;
+
+    .result-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: slategrey;
+      padding-bottom: 0.5rem;
+    }
+  }
+
+  .monthly-repayments-amount {
+    color: #dbda32;
+    font-weight: 700;
+    font-size: xxx-large;
+  }
+
+  .total-repayments-amount {
+    font-weight: 500;
+    font-size: x-large;
+    color: white;
+  }
+}

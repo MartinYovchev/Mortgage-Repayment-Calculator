@@ -44,7 +44,7 @@ const Calculator = ({ onCalculate }) => {
       </h1>
 
       <form onSubmit={handleSubmit} autoComplete="off">
-        <label className="inputLabel">Mortgage Amount</label>
+        <label className="inputLabel">Mortgage Amount €</label>
         <input
           id="mortgage-amount"
           value={amount}
@@ -68,7 +68,7 @@ const Calculator = ({ onCalculate }) => {
           }}
         />
 
-        <label className="inputLabel">Interest Rate</label>
+        <label className="inputLabel">Interest Rate %</label>
         <input
           id="interest-rate"
           value={rate}
@@ -83,8 +83,8 @@ const Calculator = ({ onCalculate }) => {
         <div className="mortgage-type">
           <label className="inputLabel">Mortgage Type</label>
 
-          <label className='statements'>
-            Repayment
+          <label className="statements">
+            <span>Repayment</span>
             <input
               type="radio"
               name="type"
@@ -94,8 +94,8 @@ const Calculator = ({ onCalculate }) => {
             />
           </label>
 
-          <label className='statements'>
-            Interest Only
+          <label className="statements">
+            <span>Interest Only</span>
             <input
               type="radio"
               name="type"

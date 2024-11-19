@@ -8,6 +8,9 @@
   display: flex;
   flex-direction: column;
   max-width: 350px;
+  padding-left: 2rem;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
 
   .calculator-header {
     font-size: 24px;
@@ -43,11 +46,11 @@
     flex-direction: column;
     gap: 5px;
     margin-bottom: 1rem;
-  
+
     .inputLabel {
       font-weight: bold;
     }
-  
+
     .statements {
       display: flex;
       align-items: center;
@@ -56,22 +59,23 @@
       cursor: pointer;
       transition: all 0.3s ease;
       padding: 0.7rem;
+      justify-content: start;
+      flex-direction: row-reverse;
 
+      input[type='radio'] {
+        margin-right: 8px;
+      }
 
-      // input[type="radio"] {
-      //   margin-right: 8px;
-      // }
-  
       // input[type="radio"]:checked + & {
       //   border-color: #4caf50;
       //   background-color: lighten(#4caf50, 30%);
       //   color: #4caf50;
       // }
-  
+
       &:hover {
         border-color: #a8eb18;
       }
-  
+
       // input[type="radio"]:checked {
       //   background-color: #4caf50;
       //   border-color: #4caf50;

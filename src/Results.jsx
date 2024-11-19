@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import './styles/results.scss';
 
 const Results = ({ formData }) => {
   const { amount, term, rate, type } = formData;
@@ -21,22 +22,23 @@ const Results = ({ formData }) => {
   return (
     <div className="results">
       <h1>Your Results</h1>
-      <p>Based on the provided information:</p>
+      <p>
+        Your results are shown below based on the information you provided. To
+        adjust the results, edit the form and click &quot;calculate
+        repayment&quot; again.
+      </p>
 
       <div className="payment-block">
-        <label htmlFor="monthly-repayments">
-          Monthly Repayments:
-          <span className="monthly-repayments-amount">
-            €{monthlyRepayment.toFixed(2)}
-          </span>
-        </label>
+        <label className="result-label">Monthly Repayments: </label>
+        <span className="monthly-repayments-amount">
+          €{monthlyRepayment.toFixed(2)}
+        </span>
+
         <hr />
-        <label htmlFor="total-repayments">
-          Total Repayments Over the Term:
-          <span className="total-repayments-amount">
-            €{totalRepayment.toFixed(2)}
-          </span>
-        </label>
+        <label className="result-label">Total Repayments Over the Term: </label>
+        <span className="total-repayments-amount">
+          €{totalRepayment.toFixed(2)}
+        </span>
       </div>
     </div>
   );
